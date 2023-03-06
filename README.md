@@ -39,11 +39,19 @@ cd  /mnt/etc/nixos/
 nano hardware-configuration.nix
 ```
 
+添加 options
+```
 fileSystems."/" = {
   device = "none";
   fsType = "tmpfs";
   options = [ "defaults" "size=2G" "mode=755" ];
 };
+```
 ### 安装
+```shell
 nixos-install --flake .#laptop
+```
+### 重启
+```shell
+reboot
 ```
